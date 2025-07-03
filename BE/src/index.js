@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+
 import { UserModel } from './db.js';
 import jwt from "jsonwebtoken"
 import {JWT_PASSWORD} from "./config.js"
@@ -58,9 +58,9 @@ app.post('/signin', async(req,res)=>{
 
  
 
- app.post('/logout',async(req,res)=>{
+ app.post('/logout',userMiddleware,async(req,res)=>{
     res.cookie('jwt',"")
-    res.redirect('/signin')
+    res.redirect('/')
  })
 
  app.listen(5000)

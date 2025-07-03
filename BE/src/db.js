@@ -1,5 +1,7 @@
 import mongoose, {model,Schema} from "mongoose";
 
+import 'dotenv/config'
+
 const string = process.env.MONGO_STRING
 mongoose.connect(string)
 
